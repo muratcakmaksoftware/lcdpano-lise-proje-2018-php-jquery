@@ -1,0 +1,137 @@
+## onemli bilgi ##
+sudo pcmanfm //ile masaustunu admin olarak kullanilabilir
+
+##kurulum##
+
+sudo apt-get update
+sudo apt-get upgrade
+//APACHE KURULUM
+
+sudo apt-get install apache2 -y
+//apache yuklendikten sonra yapilacak ayar.
+//Editlenecek dosya
+sudo nano /etc/apache2/apache2.conf
+//en sonuna bu kod yapistirilacak. ctrl + x ile kaydedilcek.
+Include /etc/phpmyadmin/apache.conf
+
+//Mysql KURULUM
+sudo apt-get install mysql-server
+
+//ayarlarin mysql sifre yapildigi yer asagidaki kod.
+//bu ayarlarda tum hersey n ile cevapladim.
+sudo mysql_secure_installation
+
+//mysql giris
+sudo mysql -u root -p // giriyoruz sifre varsa sifreyi girin.
+//daha sonra komutunu girin
+Select User, Host, plugin from mysql.user 
+plugin i unix_socket olarak gozukuyor bunu update edicegiz
+
+//Mariadb icindeyiz
+//diyerek db seciyoruz
+use mysql 
+//yapilacak adimlar
+1)UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+2)FLUSH PRIVILEGES;
+3)exit
+//islem bittikten sonra mysql restart ediyoruz/
+sudo service mysql restart
+
+//PHPMYADMIN KURULUM
+sudo apt-get install phpmyadmin
+*kurulumda apache2 seciliyor
+
+//Kurulduktan sonra Yapilacak edit.
+cd /etc/phpmyadmin/
+sudo nano confing.inc.php
+
+//icerisinde $cfg['Servers'][$i]['AllowNoPassword'] = TRUE bunu buluyoruz ve BUNUN YORUM SATIRINI KALDIRIYORUZ.
+//EK OLARAK ALTINA BU 2 KODU EKLIYORUZ.
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['AllowNoPasswordRoot'] = true;
+//ekledikten sonra ctrl x cikis yapip kaydediyoruz.
+//KAYNAK
+https://stackoverflow.com/questions/5908752/can-anyone-confirm-that-phpmyadmin-allownopassword-works-with-mysql-databases
+
+### Yapilmasi Gereken Onemli Ayar ###
+//Siteyi www ye kopyaladiktan sonra yetki iznini veriyoruz.
+sudo chmod -R 777 /var/www/*
+
+//Upload icin gerekli ayar
+// bu dizine git
+/etc/php/7.0/apache2
+//php.ini ac ve bu degerleri guncelle
+memory_limit = 200M
+upload_max_filesize = 200M
+post_max_size = 200M
+
+### Lazim olabilecek seyler ###
+
+//hatalari gormek icin
+/var/log/apache2/error.log
+
+//ip adresini ogrenme
+sudo ping raspberrypi.local
+
+//cikis yapar islemden
+ctrl + c 
+
+### Ek bilgi komutlari ###
+//dosya editleme
+sudo nano filename
+
+apache restart atma
+sudo /etc/init.d/apache2 restart
+veya
+sudo service apache2 restart
+
+mysql giris
+sudo mysql veya
+sudo mysql -u root -p
+
+//mysql restart atma
+sudo service mysql restart
+
+dosya tasima
+sudo mv tasinacak_path tasinan_path
+
+
+ls //dosya listeleme
+cd .. //onceki dizine gitme
+cd var/www/ // bir dizine gitme
+
+yetki atama
+sudo chmod 777 klasor_adi //ornek sudo chmod -R 777 /var/www/  // -777 ile yetký alinir
+
+klasor arama
+sudo find -name 'lcdpano'
+
+dizin yazarken bulundugu dizindeki ismi otomatik bulmak icin tab tusuna bas.
+
+//dosya silme
+sudo rm 'path'
+//klasor silme
+sudo rm -rf 'path'
+//klasor icindekileri silme
+sudo rm -r 'path'
+//klasorun icindekileri tasima
+sudo mv tasinan_path/* tasinacak_path
+
+-i // tek dosya 
+
+-r // tum dosyalar
+
+-v for verbose, shows files being copied one by one. For example:
+
+sudo cp -i kopyalanan_path kopyalanacak_path
+
+====
+
+ek bilgi
+sudo a2dissite lcdpano.conf // disable et
+sudo systemctl reload apache2 // degisiklikleri guncelle
+sudo service apache2 restart // apache restart
+
+sudo a2ensite 000.default.conf // enable et
+sudo  systemctl reload apache2 // guncelle
+sudo service apache2 restart // apache restart

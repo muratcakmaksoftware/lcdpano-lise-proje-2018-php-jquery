@@ -1,0 +1,18 @@
+Kaynak: http://blog.bytedevelopers.com/increase-import-size-wamp-phpmyadmin/
+
+Dosya Yüklemelerinde php varsayýlan 8mb 2mb olarak sýnýrlandýrdýðý için video yüklemelerinde
+sýkýntý yapýyor bu yüzden aþaðýdaki bu ayarýn yapýlmasý gereklidir.
+
+C:\wamp\bin\php\php5.3.5\php.ini
+C:\wamp\bin\apache\Apache2.2.17\bin\php.ini
+Bu iki yerdeki php.ini leri aþaðýdaki deðerler ile düzeltin.
+
+upload_max_filesize = 200M 
+post_max_size = 200M
+memory_limit = 200M
+
+
+http://www.canlitvlive.io/sitene-canli-tv-ekle.html
+Buradan kanal eklenebilir.
+
+yayýn reklamlarýnýn atlanmasý için adguard kurulabilir.

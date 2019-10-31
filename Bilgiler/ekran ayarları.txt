@@ -1,0 +1,18 @@
+1)terminali açýp bu kodu yazýp entere basýn.
+sudo pcmanfm
+2)Açýlan pencereden dizin kýsmýna bunu yazýp entere basýn.
+/home/pi/.config/lxsession/LXDE-pi/
+3)autostart diye dosya olmasý gerekiyor ona sað tuþ týklayýp Leafpad text editorunu seçin.
+4)Gelen pencereden deðiþtirilecekler.
+//xscreensaver kýsmýný yorum satýrýna dönüþtürüyoruz.
+#@xscreensaver -no-splash
+
+//Baþlangýçta çalýþtýrmak için 
+@/usr/bin/chromium-browser --incognito --start-maximized --kiosk http://localhost/
+//unclutter imleci gizliyor anladýgým kadarýyla
+//Diðerleride ekranýn kapanmamasýný saðlýyor.
+@unclutter 
+@xset s off
+@xset s noblank
+@xset -dpms
+

@@ -1,0 +1,147 @@
+
+
+html,body{	
+	min-height: 100%; margin: 0;
+	overflow-x: hidden;
+}
+
+.kapsa{
+	width: 100%;
+	min-height: 100%;
+	background: green;
+	
+}
+
+.solkapsa{	
+	min-width: 300px;
+	min-height: 100%;
+	background-color:#272024;
+	float:left;
+	
+	position:fixed;
+
+}
+
+	.solmenu{
+		width:100%;
+		padding: 10px;
+	}
+
+	.solmenu-item{
+		margin-top: 10px;
+		width: 100%;
+		height: 50px;
+		padding: 7px;
+		color: #DDD;
+		font-size:2.0vh;
+		padding-left:10px;
+		background-color:#5B5F5B;
+		border-radius: 2px;
+		cursor: pointer;				
+	}
+
+	.solmenu-item-text{
+		padding:5px;
+	}
+
+	.solmenu-material{
+		font-size:33px;float:left;
+	}
+
+	.solmenu-item:hover{
+		background-color:#717C7D;
+		color: #FFF;	
+	}
+
+	.solmenubot{
+		position: absolute;
+		bottom:0px;
+		width: 100%;
+		height: 50px;		
+		background-color:#5B5F5B;
+		padding: 10px;
+		font-size:2.2vh;color:#DDD;
+		cursor: pointer;
+	}
+
+	.solmenubot:hover{
+		background-color:#717C7D;
+		color: #FFF;
+	}
+
+.logo{
+	width: 150px;
+	height: 100px;
+	margin-left:auto;margin-right:auto;
+}
+
+.sagkapsa{
+	width:100%;
+	min-height: 100%;
+	background-color:#CEC9C7;
+	float:left;
+	padding: 10px;
+	padding-left:310px;
+
+}
+
+.solYasla{
+	float:left;
+}
+
+.sagYasla{
+	float:right;
+}
+
+.hr{
+	border-color:white;width:100%;margin-top:10px;clear:both;
+}
+
+.tik{
+    background-image: url('images/tick.png');
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    width: 35px;
+    height: 35px;
+    cursor:pointer;
+}
+
+.tik:hover{
+    background-image: url('images/tickhover.png');    
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
+    width: 35px;
+    height: 35px;
+    cursor:pointer;
+}
+
+
+.sil{
+    background-image: url('images/delete.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+}
+
+.sil:hover{
+    background-image: url('images/deletehover.png');    
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+}
+
+.baslikYazisi{
+	font-size:25px;
+}
+
+.rowStili{
+	margin-top:5px;background-color:#717C7D;padding:5px;color:#CEC9C7;border-radius:3px;font-size:24px;
+}
+
+.rowBaslik{
+	margin-top:5px;background-color:#272024;padding:5px;color:#CEC9C7;border-radius:3px;font-size:24px;
+}
